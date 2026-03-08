@@ -1,12 +1,8 @@
-import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
+import { serial, pgTable, uuid, varchar } from 'drizzle-orm/pg-core';
 
-export const users = pgTable('users', {
-  id: serial('id').primaryKey(),
-  name: text('name').notNull(),
-  email: text('email').notNull().unique(),
-  createdAt: timestamp('created_at').defaultNow(),
-  updatedAt: timestamp('updated_at').defaultNow(),
-});
 
-export type User = typeof users.$inferSelect;
-export type NewUser = typeof users.$inferInsert;
+export const UserTable = pgTable('user' , {
+  id : uuid('id').primaryKey().defaultRandom(),
+  // id2 : serial('id2').primaryKey()
+  name : varchar('name' , {length : 255}).notNull()
+} )
