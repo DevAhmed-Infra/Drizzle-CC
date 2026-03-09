@@ -1,10 +1,11 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "drizzle-cc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon main.ts",
+    "dev": "nodemon --exec tsx src/main.ts",
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
